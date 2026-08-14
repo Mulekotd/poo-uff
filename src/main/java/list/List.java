@@ -42,7 +42,7 @@ public class List {
         }
     }
 
-    // Adiciona o na posição indicada
+    // Adiciona o objeto na posição indicada
     public void add(Object o, int index) {
         if (index == 0) {
             Node node = new Node(o, this.head);
@@ -69,18 +69,15 @@ public class List {
         }
     }
 
-    // Retorna um valor booleano correspondente a existência de o na lista
+    // Retorna um valor booleano correspondente a existência do objeto na lista
     public boolean has(Object o) {
-        boolean found = false;
-
         for (Node current = this.head; current != null; current = current.next) {
             if (Objects.equals(current.getInfo(), o)) {
-                found = true;
-                break;
+                return true;
             }
         }
 
-        return found;
+        return false;
     }
 
     // Proucura por um objeto e retorna ele
@@ -94,7 +91,7 @@ public class List {
         return null;
     }
 
-    // Remove o caso exista
+    // Remove o objeto caso exista
     public Object remove(Object o) {
         Node previous = null;
 
@@ -119,19 +116,19 @@ public class List {
         return null;
     }
 
-    // Retorna a posição de o caso esteja na lista
-    public int index(Object o) {
-        int position = 0;
+    // Retorna a posição do objeto caso esteja na lista
+    public int find(Object o) {
+        int index = 0;
 
         for (Node current = this.head; current != null; current = current.next) {
             if (this.has(o)) {
                 break;
             }
 
-            position++;
+            index++;
         }
 
-        return position;
+        return index;
     }
 
     // Imprime o conteúdo da lista

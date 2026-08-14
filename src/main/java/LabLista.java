@@ -5,19 +5,17 @@ public class LabLista {
     {
         List list = new List();
         
-        list.add("Pizza");
+        list.add("Spaghetti");
         list.add("Lasagna");
-        list.add("Pasta", 1);
-        list.add("Hamburguer");
+        list.add("Pizza");
+
+        list.println();
+
+        list.add("Fettuccini", 0);
+        list.remove("Pizza");
 
         list.println();
 
         System.out.println("Tamanho da lista " + list.size());
-        System.out.println("Indice da Pizza " + list.index("Pizza"));
-
-        list.add("Fettuccini");
-        list.remove("Hamburguer");
-
-        list.println();
     }
 }
