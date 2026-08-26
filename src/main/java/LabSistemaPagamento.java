@@ -9,10 +9,12 @@ public class LabSistemaPagamento {
 
         System.out.print("Insira o seu CPF: ");
         String cpf = reader.nextLine();
+        System.out.print("\n");
 
+        // Injeta a dependência do reader
         SistemaPagamento sistema = new SistemaPagamento(cpf, reader);
-        sistema.rodar();
 
+        sistema.rodar();
         reader.close();
     }
 }

@@ -16,9 +16,26 @@ public class Estoque {
     public void exibir() {
         System.out.println("Quantidade | Produto | Valor");
 
-        for (Item i : itensEstoque) {
-            Produto p = i.getProduto();
-            System.out.println(i.getQuantidade() + " | " + p.getNome() + " | " + p.getPreco());
+        for (Item item : itensEstoque) {
+            Produto produto = item.getProduto();
+            System.out.println(item.getQuantidade() + " | " + produto.getNome() + " | " + produto.getPreco());
         }
+
+        System.out.print("\n");
+    }
+
+    public Produto pegaProduto(String nomeProduto, Integer qntdSolicitada) {
+        Produto escolhido = null;
+
+        for (Item item : itensEstoque) {
+            Produto produto = item.getProduto();
+
+            if (produto.getNome().equals(nomeProduto)) {
+                escolhido = produto;
+                item.setQuantidade(item.getQuantidade() - qntdSolicitada);
+            }
+        }
+
+        return escolhido;
     }
 }

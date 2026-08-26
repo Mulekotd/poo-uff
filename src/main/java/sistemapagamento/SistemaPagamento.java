@@ -22,8 +22,10 @@ public class SistemaPagamento {
     public void rodar() {
         while (this.rodando) {
             this.exibirOpcoes();
-            String op = this.leitor.nextLine();
-            this.processarOpcao(op);
+            System.out.print("Escolha uma opção: ");
+            String opcao = this.leitor.nextLine();
+            System.out.print("\n");
+            this.processarOpcao(opcao);
         }
     }
 
@@ -31,10 +33,26 @@ public class SistemaPagamento {
         switch (opcao) {
             case "a":
                 this.estoque.exibir();
+
+                System.out.print("Digite o nome do produto: ");
+                String nomeProduto = this.leitor.nextLine();
+                System.out.print("Digite a quantidade de itens: ");
+                Integer quantidadeSolicitada = Integer.parseInt(this.leitor.nextLine().trim());
+                System.out.print("\n");
+
+                Produto produto = this.estoque.pegaProduto(nomeProduto, quantidadeSolicitada);
+
+                if (produto == null) {
+                    System.out.println("Produto não encontrado.\n");
+                } else {
+                    this.carrinho.adicionar(produto, quantidadeSolicitada);
+                }
+
                 break;
 
             case "b":
                 this.carrinho.exibir();
+                this.carrinho.finalizarCompra();
                 break;
 
             case "c":
@@ -42,14 +60,15 @@ public class SistemaPagamento {
                 break;
 
             default:
-                System.out.println("Opção inválida.");
+                System.out.println("Opção inválida.\n");
+                break;
         }
     }
 
     public void exibirOpcoes() {
         System.out.println("a) Escolher Produto");
         System.out.println("b) Finalizar a Compra");
-        System.out.println("c) Encerrar Sessão");
+        System.out.println("c) Encerrar Sessão\n");
     }
 
     public void setRodando(Boolean rodando) {

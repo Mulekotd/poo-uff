@@ -1,38 +1,53 @@
 package sistemapagamento;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Carrinho {
-    private ArrayList<Item> itensCarrinho;
+    private HashMap<Integer, Item> itensCarrinho;
+    private double subtotal;
 
     public Carrinho() {
-        itensCarrinho = new ArrayList<>();
+        this.itensCarrinho = new HashMap<>();
+        this.subtotal = 0;
     }
 
     public void exibir() {
-        System.out.println("Itens no carrinho:");
+        System.out.println("Recibo:");
 
-        for (Item i : this.itensCarrinho) {
-            Produto p = i.getProduto();
-            System.out.println("Nome: " + p.getNome() + ", Quantidade: " + i.getQuantidade());
+        for (Item item : this.itensCarrinho.values()) {
+            Produto produto = item.getProduto();
+            System.out.println("Item: " + produto.getNome() + " | Qntd: " + item.getQuantidade());
         }
 
-        System.out.println("Subtotal: " + this.subtotal());
+        System.out.println("Subtotal: R$ " + this.getSubtotal() + "\n");
     }
 
-    public void adicionar(Item item) {
-        itensCarrinho.add(item);
+    public void adicionar(Produto produto, Integer quantidade) {
+        Item itemExistente = itensCarrinho.get(produto.getId());
+
+        if (itemExistente == null) {
+            itensCarrinho.put(produto.getId(), new Item(produto, quantidade));
+        } else {
+            Integer novaQuantidade = itemExistente.getQuantidade() + quantidade;
+            itemExistente.setQuantidade(novaQuantidade);
+        }
     }
 
-    public double subtotal() {
-        double total = 0;
-        
-        for (Item i: itensCarrinho) {
-            Produto p = i.getProduto();
-            Integer q = i.getQuantidade();
-            total += p.getPreco() * q;
+    public void finalizarCompra() {
+        System.out.println("Compra finalizada com sucesso!\n");
+
+        this.itensCarrinho.clear();
+        this.subtotal = 0;
+    }
+
+    public double getSubtotal() {
+        for (Item item: itensCarrinho.values()) {
+            Produto produto = item.getProduto();
+            Integer quantidade = item.getQuantidade();
+
+            this.subtotal += produto.getPreco() * quantidade;
         }
 
-        return total;
+        return subtotal;
     }
 }
