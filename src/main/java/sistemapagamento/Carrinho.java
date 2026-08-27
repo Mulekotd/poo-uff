@@ -12,8 +12,8 @@ public class Carrinho {
     }
 
     public void exibir() {
-        System.out.println("Recibo:");
-
+        System.out.println("RECIBO");
+                           
         for (Item item : this.itensCarrinho.values()) {
             Produto produto = item.getProduto();
             System.out.println("Item: " + produto.getNome() + " | Qntd: " + item.getQuantidade());
@@ -34,6 +34,11 @@ public class Carrinho {
     }
 
     public void finalizarCompra() {
+        if (this.itensCarrinho.size() == 0) {
+            System.out.println("Adicione pelo menos um item ao carrinho.\n");
+            return;
+        }
+
         System.out.println("Compra finalizada com sucesso!\n");
 
         this.itensCarrinho.clear();
@@ -48,6 +53,6 @@ public class Carrinho {
             this.subtotal += produto.getPreco() * quantidade;
         }
 
-        return subtotal;
+        return this.subtotal;
     }
 }

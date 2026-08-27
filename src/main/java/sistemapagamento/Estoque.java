@@ -18,7 +18,7 @@ public class Estoque {
 
         for (Item item : itensEstoque) {
             Produto produto = item.getProduto();
-            System.out.println(item.getQuantidade() + " | " + produto.getNome() + " | " + produto.getPreco());
+            System.out.println(item.getQuantidade() + " | " + produto.getNome() + " | R$ " + produto.getPreco());
         }
 
         System.out.print("\n");
@@ -29,8 +29,9 @@ public class Estoque {
 
         for (Item item : itensEstoque) {
             Produto produto = item.getProduto();
+            String nome = produto.getNome();
 
-            if (produto.getNome().equals(nomeProduto)) {
+            if (nome.toLowerCase().equals(nomeProduto.toLowerCase())) {
                 escolhido = produto;
                 item.setQuantidade(item.getQuantidade() - qntdSolicitada);
             }

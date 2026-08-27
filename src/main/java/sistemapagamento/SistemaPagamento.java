@@ -30,7 +30,7 @@ public class SistemaPagamento {
     }
 
     public void processarOpcao(String opcao) {
-        switch (opcao) {
+        switch (opcao.toLowerCase()) {
             case "a":
                 this.estoque.exibir();
 
