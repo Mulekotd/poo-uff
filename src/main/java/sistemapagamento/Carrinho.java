@@ -4,11 +4,11 @@ import java.util.HashMap;
 
 public class Carrinho {
     private HashMap<Integer, Item> itensCarrinho;
-    private double subtotal;
+    private Double subtotal;
 
     public Carrinho() {
         this.itensCarrinho = new HashMap<>();
-        this.subtotal = 0;
+        this.subtotal = 0.0;
     }
 
     public void exibir() {
@@ -42,10 +42,10 @@ public class Carrinho {
         System.out.println("Compra finalizada com sucesso!\n");
 
         this.itensCarrinho.clear();
-        this.subtotal = 0;
+        this.subtotal = 0.0;
     }
 
-    public double getSubtotal() {
+    public Double getSubtotal() {
         for (Item item: itensCarrinho.values()) {
             Produto produto = item.getProduto();
             Integer quantidade = item.getQuantidade();

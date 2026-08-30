@@ -5,9 +5,9 @@ public class Produto {
 
     private final Integer id;
     private String nome;
-    private double preco;
+    private Double preco;
 
-    public Produto(String nome, double preco) {
+    public Produto(String nome, Double preco) {
         this.id = nextId++;
         this.nome = nome;
         this.preco = preco;
@@ -21,7 +21,7 @@ public class Produto {
         return nome;
     }
 
-    public double getPreco() {
+    public Double getPreco() {
         return preco;
     }
 }

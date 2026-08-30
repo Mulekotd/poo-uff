@@ -8,7 +8,7 @@ public class SistemaPagamento {
     private Carrinho carrinho;
     private Scanner leitor;
 
-    private boolean rodando;
+    private Boolean rodando;
 
     public SistemaPagamento(String cpfCliente, Scanner leitor) {
         this.sessao = new Sessao(cpfCliente);        
@@ -40,7 +40,7 @@ public class SistemaPagamento {
                 Integer quantidadeSolicitada = Integer.parseInt(this.leitor.nextLine().trim());
                 System.out.print("\n");
 
-                Produto produto = this.estoque.pegaProduto(nomeProduto, quantidadeSolicitada);
+                Produto produto = this.estoque.retiraProduto(nomeProduto, quantidadeSolicitada);
 
                 if (produto == null) {
                     System.out.println("Produto não encontrado.\n");

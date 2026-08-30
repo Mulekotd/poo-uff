@@ -24,7 +24,7 @@ public class Estoque {
         System.out.print("\n");
     }
 
-    public Produto pegaProduto(String nomeProduto, Integer qntdSolicitada) {
+    public Produto retiraProduto(String nomeProduto, Integer qntdSolicitada) {
         Produto escolhido = null;
 
         for (Item item : itensEstoque) {
