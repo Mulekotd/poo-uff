@@ -23,6 +23,10 @@ public class Carrinho {
     }
 
     public void adicionar(Produto produto, Integer quantidade) {
+        if (quantidade == null || quantidade <= 0) {
+            throw new IllegalArgumentException("A quantidade deve ser positiva.");
+        }
+
         Item itemExistente = itensCarrinho.get(produto.getId());
 
         if (itemExistente == null) {
@@ -33,26 +37,26 @@ public class Carrinho {
         }
     }
 
-    public void finalizarCompra() {
-        if (this.itensCarrinho.size() == 0) {
-            System.out.println("Adicione pelo menos um item ao carrinho.\n");
-            return;
+    public boolean finalizarCompra(Estoque estoque) {
+        if (this.itensCarrinho.isEmpty() || !estoque.temDisponibilidade(this.itensCarrinho.values())) {
+            return false;
         }
 
-        System.out.println("Compra finalizada com sucesso!\n");
+        estoque.retirarProdutos(this.itensCarrinho.values());
 
         this.itensCarrinho.clear();
         this.subtotal = 0.0;
+
+        return true;
     }
 
     public Double getSubtotal() {
-        for (Item item: itensCarrinho.values()) {
-            Produto produto = item.getProduto();
-            Integer quantidade = item.getQuantidade();
+        Double total = 0.0;
 
-            this.subtotal += produto.getPreco() * quantidade;
+        for (Item item : itensCarrinho.values()) {
+            total += item.getProduto().getPreco() * item.getQuantidade();
         }
 
-        return this.subtotal;
+        return total;
     }
 }

@@ -40,7 +40,12 @@ public class SistemaPagamento {
                 Integer quantidadeSolicitada = Integer.parseInt(this.leitor.nextLine().trim());
                 System.out.print("\n");
 
-                Produto produto = this.estoque.retiraProduto(nomeProduto, quantidadeSolicitada);
+                if (quantidadeSolicitada <= 0) {
+                    System.out.println("A quantidade deve ser positiva.\n");
+                    break;
+                }
+
+                Produto produto = this.estoque.buscarProduto(nomeProduto);
 
                 if (produto == null) {
                     System.out.println("Produto não encontrado.\n");
@@ -52,7 +57,12 @@ public class SistemaPagamento {
 
             case "b":
                 this.carrinho.exibir();
-                this.carrinho.finalizarCompra();
+
+                if (this.carrinho.finalizarCompra(this.estoque)) {
+                    System.out.println("Compra finalizada com sucesso!\n");
+                } else {
+                    System.out.println("Não foi possível finalizar: estoque insuficiente ou carrinho vazio.\n");
+                }
                 break;
 
             case "c":
