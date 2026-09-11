@@ -27,10 +27,10 @@ public class Carrinho {
             throw new IllegalArgumentException("A quantidade deve ser positiva.");
         }
 
-        Item itemExistente = itensCarrinho.get(produto.getId());
+        Item itemExistente = itensCarrinho.get(produto.getCodigo());
 
         if (itemExistente == null) {
-            itensCarrinho.put(produto.getId(), new Item(produto, quantidade));
+            itensCarrinho.put(produto.getCodigo(), new Item(produto, quantidade));
         } else {
             Integer novaQuantidade = itemExistente.getQuantidade() + quantidade;
             itemExistente.setQuantidade(novaQuantidade);

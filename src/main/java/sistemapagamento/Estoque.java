@@ -8,10 +8,10 @@ public class Estoque {
 
     public Estoque() {
         itensEstoque = new ArrayList<>();
-        itensEstoque.add(new Item(new Produto("Hamburguer", 20.0), 25));
-        itensEstoque.add(new Item(new Produto("Fritas", 8.0), 25));
-        itensEstoque.add(new Item(new Produto("Refrigerante", 5.0), 25));
-        itensEstoque.add(new Item(new Produto("Cheeseburguer", 20.0), 25));
+        itensEstoque.add(new Item(new Produto(0, 20.0, "Hamburguer"), 25));
+        itensEstoque.add(new Item(new Produto(1, 8.0, "Fritas"), 25));
+        itensEstoque.add(new Item(new Produto(2, 5.0, "Refrigerante"), 25));
+        itensEstoque.add(new Item(new Produto(3, 20.0, "Cheeseburguer"), 25));
     }
 
     public void exibir() {
@@ -68,7 +68,7 @@ public class Estoque {
 
     private Item encontrarItem(Produto produto) {
         for (Item item : itensEstoque) {
-            if (item.getProduto().getId().equals(produto.getId())) {
+            if (item.getProduto().getCodigo().equals(produto.getCodigo())) {
                 return item;
             }
         }
