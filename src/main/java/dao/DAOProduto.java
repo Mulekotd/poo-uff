@@ -25,11 +25,9 @@ public class DAOProduto {
     private FileOutputStream fos;
     private DataInputStream dis;
     private DataOutputStream dos;
-    private boolean append;
 
-    public DAOProduto(String filepath, boolean append) {
+    public DAOProduto(String filepath) {
         this.file = new File(filepath);
-        this.append = append;
 
         this.fos = null;
         this.fis = null;
@@ -62,14 +60,14 @@ public class DAOProduto {
 
     public void salvar(ArrayList<Produto> produtos) {
         try {
-            this.fos = new FileOutputStream(this.file, this.append);
+            this.fos = new FileOutputStream(this.file, true);
             this.dos = new DataOutputStream(fos);
 
             for (Produto produto : produtos) {
                 this._salvar(produto);
             }
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         } finally {
             this.fechar();
         }
@@ -90,8 +88,8 @@ public class DAOProduto {
                 Produto produto = this._ler();
                 produtos.add(produto);
             }
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         } finally {
             this.fechar();
         }
@@ -105,8 +103,8 @@ public class DAOProduto {
             if (this.fos != null) this.fos.close();
             if (this.dis != null) this.dis.close();
             if (this.dos != null) this.dos.close();
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException exception) {
+            exception.printStackTrace();
         }
     }
 }

@@ -2,8 +2,7 @@ import sistemapagamento.SistemaPagamento;
 
 import java.util.Scanner;
 
-
-public class LabSistemaPagamento {
+public class ProgramaSistemaPagamento {
     public static void main(String args[]) {
         Scanner reader = new Scanner(System.in);
 

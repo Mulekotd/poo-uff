@@ -14,8 +14,8 @@ javac -d build/classes $(find src/main/java -name "*.java")
 Depois, execute um dos programas principais:
 
 ```sh
-java -cp build/classes LabSistemaPagamento
-java -cp build/classes LabArquivos dataset/instructions-set.txt
+java -cp build/classes ProgramaSistemaPagamento
+java -cp build/classes ProgramaSistemaBoleto resources/boleto.csv
 ```
 
 ## Requisitos

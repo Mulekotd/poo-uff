@@ -1,8 +1,9 @@
 import dao.DAOProduto;
-import java.util.ArrayList;
 import sistemapagamento.Produto;
 
-public class LabArquivoBinario {
+import java.util.ArrayList;
+
+public class ProgramaArquivoBinario {
     public static void main(String[] args) {
         if (args.length != 1) {
             System.err.println("Usage: java LabArquivoBinario <filepath>");
@@ -11,7 +12,8 @@ public class LabArquivoBinario {
 
         String filepath = args[0];
 
-        DAOProduto daoProduto = new DAOProduto(filepath, true);
+        DAOProduto daoProduto = new DAOProduto(filepath);
+
         ArrayList<Produto> produtos = new ArrayList<>();
         produtos.add(new Produto(0, 12.50, "Caneta"));
         produtos.add(new Produto(1, 8.90, "Caderno"));

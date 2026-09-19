@@ -1,6 +1,6 @@
 import binarytree.BinaryTree;
 
-public class LabArvoreBinaria {
+public class ProgramaArvoreBinaria {
     public static void main(String[] args) {
         BinaryTree binaryTree = new BinaryTree();
  

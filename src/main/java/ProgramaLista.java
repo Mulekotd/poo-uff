@@ -1,8 +1,7 @@
 import list.List;
 
-public class LabLista {
-    public static void main(String[] args) 
-    {
+public class ProgramaLista {
+    public static void main(String[] args) {
         List list = new List();
         
         list.add("Spaghetti");
