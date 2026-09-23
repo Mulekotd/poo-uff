@@ -66,8 +66,8 @@ public class DAOProduto {
             for (Produto produto : produtos) {
                 this._salvar(produto);
             }
-        } catch (IOException exception) {
-            exception.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
             this.fechar();
         }
@@ -88,8 +88,8 @@ public class DAOProduto {
                 Produto produto = this._ler();
                 produtos.add(produto);
             }
-        } catch (IOException exception) {
-            exception.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         } finally {
             this.fechar();
         }
@@ -103,8 +103,8 @@ public class DAOProduto {
             if (this.fos != null) this.fos.close();
             if (this.dis != null) this.dis.close();
             if (this.dos != null) this.dos.close();
-        } catch (IOException exception) {
-            exception.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }

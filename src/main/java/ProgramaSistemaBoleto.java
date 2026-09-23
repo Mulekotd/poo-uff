@@ -14,9 +14,9 @@ public class ProgramaSistemaBoleto {
         try {
             sistema = new SistemaBoleto(fileName);
             sistema.getIO().listen();
-        } catch (Exception exception) {
+        } catch (Exception e) {
             System.err.println("Ocorreu um erro inesperado, contate o desenvolvedor!");
-            exception.printStackTrace(System.err);
+            e.printStackTrace(System.err);
         } finally {
             if (sistema != null) {
                 sistema.close();

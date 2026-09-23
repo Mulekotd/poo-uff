@@ -37,7 +37,7 @@ public class SistemaBoleto {
         try {
             br.closeStream();
             bw.closeStream();
-        } catch (IOException exception) {}
+        } catch (IOException e) {}
     }
 
     public void listen() throws Exception {
