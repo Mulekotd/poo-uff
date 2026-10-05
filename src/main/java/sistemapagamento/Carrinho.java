@@ -3,12 +3,10 @@ package sistemapagamento;
 import java.util.HashMap;
 
 public class Carrinho {
-    private HashMap<Integer, Item> itensCarrinho;
-    private Double subtotal;
+    private final HashMap<Integer, Item> itensCarrinho;
 
     public Carrinho() {
         this.itensCarrinho = new HashMap<>();
-        this.subtotal = 0.0;
     }
 
     public void exibir() {
@@ -19,7 +17,7 @@ public class Carrinho {
             System.out.println("Item: " + produto.getNome() + " | Qntd: " + item.getQuantidade());
         }
 
-        System.out.println("Subtotal: R$ " + this.getSubtotal() + "\n");
+        System.out.println("Subtotal: R$ " + this.calcularSubtotal() + "\n");
     }
 
     public void adicionar(Produto produto, Integer quantidade) {
@@ -45,12 +43,11 @@ public class Carrinho {
         estoque.retirarProdutos(this.itensCarrinho.values());
 
         this.itensCarrinho.clear();
-        this.subtotal = 0.0;
 
         return true;
     }
 
-    public Double getSubtotal() {
+    public Double calcularSubtotal() {
         Double total = 0.0;
 
         for (Item item : itensCarrinho.values()) {

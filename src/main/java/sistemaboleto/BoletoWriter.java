@@ -48,6 +48,7 @@ public class BoletoWriter implements IBoletoFileStream {
         }
     }
 
+    @SuppressWarnings("empty-statement")
     private long firstLineEndPointer() throws IOException {
         int character;
 

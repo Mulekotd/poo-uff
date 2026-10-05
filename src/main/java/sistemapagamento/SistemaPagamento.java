@@ -3,10 +3,10 @@ package sistemapagamento;
 import java.util.Scanner;
 
 public class SistemaPagamento {
-    private Sessao sessao;
-    private Estoque estoque;
-    private Carrinho carrinho;
-    private Scanner leitor;
+    private final Sessao sessao;
+    private final Estoque estoque;
+    private final Carrinho carrinho;
+    private final Scanner leitor;
 
     private Boolean rodando;
 
@@ -31,13 +31,13 @@ public class SistemaPagamento {
 
     public void processarOpcao(String opcao) {
         switch (opcao.toLowerCase()) {
-            case "a":
+            case "a" -> {
                 this.estoque.exibir();
 
                 System.out.print("Digite o nome do produto: ");
                 String nomeProduto = this.leitor.nextLine();
                 System.out.print("Digite a quantidade de itens: ");
-                Integer quantidadeSolicitada = Integer.parseInt(this.leitor.nextLine().trim());
+                Integer quantidadeSolicitada = Integer.valueOf(this.leitor.nextLine().trim());
                 System.out.print("\n");
 
                 if (quantidadeSolicitada <= 0) {
@@ -52,10 +52,9 @@ public class SistemaPagamento {
                 } else {
                     this.carrinho.adicionar(produto, quantidadeSolicitada);
                 }
+            }
 
-                break;
-
-            case "b":
+            case "b" -> {
                 this.carrinho.exibir();
 
                 if (this.carrinho.finalizarCompra(this.estoque)) {
@@ -63,15 +62,11 @@ public class SistemaPagamento {
                 } else {
                     System.out.println("Não foi possível finalizar: estoque insuficiente ou carrinho vazio.\n");
                 }
-                break;
+            }
 
-            case "c":
-                this.setRodando(false);
-                break;
+            case "c" -> this.setRodando(false);
 
-            default:
-                System.out.println("Opção inválida.\n");
-                break;
+            default -> System.out.println("Opção inválida.\n");
         }
     }
 
@@ -79,6 +74,10 @@ public class SistemaPagamento {
         System.out.println("a) Escolher Produto");
         System.out.println("b) Finalizar a Compra");
         System.out.println("c) Encerrar Sessão\n");
+    }
+
+    public Sessao getSessao() {
+        return sessao;
     }
 
     public void setRodando(Boolean rodando) {

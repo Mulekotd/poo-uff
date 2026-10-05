@@ -75,7 +75,7 @@ public class BoletoReader implements IBoletoFileStream {
         String id = fields[0].trim();
         String tipo = fields[1].trim();
         String cliente = fields[2].trim();
-        Float preco = Float.parseFloat(fields[3].trim());
+        Float preco = Float.valueOf(fields[3].trim());
 
         return new Boleto(id, tipo, cliente, preco);
     }

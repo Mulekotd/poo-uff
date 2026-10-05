@@ -1,8 +1,6 @@
 package sistemapagamento;
 
 public class Produto {
-    private static int nextId = 0;
-
     private final Integer codigo;
     private final double preco;
     private final String nome;

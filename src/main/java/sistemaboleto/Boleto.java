@@ -1,10 +1,10 @@
 package sistemaboleto;
 
 public class Boleto {
-    private String id;
-    private String tipo;
-    private String cliente;
-    private Float subtotal;
+    private final String id;
+    private final String tipo;
+    private final String cliente;
+    private final Float subtotal;
     
     public Boleto(String id, String tipo, String cliente, Float subtotal) {
         this.id = id;
