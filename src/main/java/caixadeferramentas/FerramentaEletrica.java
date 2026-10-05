@@ -1,6 +1,6 @@
 package caixadeferramentas;
 
-public class FerramentaEletrica extends Descritivo {
+public class FerramentaEletrica extends Produto {
     private final Float voltagem;
 
     public FerramentaEletrica(String nome, String marca, Float preco, Float voltagem) {
