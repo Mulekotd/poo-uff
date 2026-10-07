@@ -1,26 +1,24 @@
 package dao;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-import java.nio.ByteBuffer;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Arrays;
 import sistemapagamento.Produto;
 
+@SuppressWarnings("CallToPrintStackTrace")
 public class DAOProduto {
     private static final int TAM_ATR_ID = Integer.BYTES;
     private static final int TAM_ATR_PRECO = Double.BYTES;
     private static final int TAM_ATR_NOME = 40;
     private static final int TAM_REG = TAM_ATR_ID + TAM_ATR_PRECO + TAM_ATR_NOME;
 
-    private File file;
+    private final File file;
     private FileInputStream fis;
     private FileOutputStream fos;
     private DataInputStream dis;

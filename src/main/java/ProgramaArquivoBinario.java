@@ -1,7 +1,6 @@
 import dao.DAOProduto;
-import sistemapagamento.Produto;
-
 import java.util.ArrayList;
+import sistemapagamento.Produto;
 
 public class ProgramaArquivoBinario {
     public static void main(String[] args) {
@@ -12,17 +11,17 @@ public class ProgramaArquivoBinario {
 
         String filepath = args[0];
 
-        DAOProduto daoProduto = new DAOProduto(filepath);
+        DAOProduto dao = new DAOProduto(filepath);
 
         ArrayList<Produto> produtos = new ArrayList<>();
         produtos.add(new Produto(0, 12.50, "Caneta"));
         produtos.add(new Produto(1, 8.90, "Caderno"));
         produtos.add(new Produto(2, 25.00, "Mochila"));
 
-        daoProduto.salvar(produtos);
+        dao.salvar(produtos);
 
         System.out.println("Produtos lidos do arquivo:");
-        for (Produto produto : daoProduto.ler()) {
+        for (Produto produto : dao.ler()) {
             System.out.printf(
                     "Código: %d | Nome: %s | Preço: R$ %.2f%n",
                     produto.getCodigo(),
