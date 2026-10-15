@@ -31,7 +31,7 @@ public class SistemaPagamento {
 
     public void processarOpcao(String opcao) {
         switch (opcao.toLowerCase()) {
-            case "a" -> {
+            case "a": {
                 this.estoque.exibir();
 
                 System.out.print("Digite o nome do produto: ");
@@ -53,8 +53,7 @@ public class SistemaPagamento {
                     this.carrinho.adicionar(produto, quantidadeSolicitada);
                 }
             }
-
-            case "b" -> {
+            case "b": {
                 this.carrinho.exibir();
 
                 if (this.carrinho.finalizarCompra(this.estoque)) {
@@ -63,10 +62,8 @@ public class SistemaPagamento {
                     System.out.println("Não foi possível finalizar: estoque insuficiente ou carrinho vazio.\n");
                 }
             }
-
-            case "c" -> this.setRodando(false);
-
-            default -> System.out.println("Opção inválida.\n");
+            case "c": this.setRodando(false);
+            default: System.out.println("Opção inválida.\n");
         }
     }
 

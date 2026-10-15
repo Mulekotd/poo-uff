@@ -38,18 +38,18 @@ public class SistemaBoletoIO {
         }
 
         switch (mode) {
-            case "q" -> this.setActive(false);
-            case "w" -> {
+            case "q": this.setActive(false);
+            case "w": {
                 ui.showWritePrompt(false);
                 bw.write(readContent(), false);
                 ui.showMessage("Arquivo sobrescrito com sucesso.");
             }
-            case "w+" -> {
+            case "w+": {
                 ui.showWritePrompt(true);
                 bw.write(readContent(), true);
                 ui.showMessage("Conteúdo concatenado com sucesso.");
             }
-            case "r" -> {
+            case "r": {
                 ArrayList<Boleto> boletos = br.readLines();
 
                 if (boletos.isEmpty()) {
@@ -60,7 +60,7 @@ public class SistemaBoletoIO {
                     }
                 }
             }
-            default -> ui.showMessage("Ação inválida. Use r, w, w+ ou q.");
+            default: ui.showMessage("Ação inválida. Use r, w, w+ ou q.");
         }
     }
 
