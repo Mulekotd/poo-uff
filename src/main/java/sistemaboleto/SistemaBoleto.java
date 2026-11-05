@@ -2,7 +2,6 @@ package sistemaboleto;
 
 import java.io.File;
 import java.io.IOException;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -52,7 +51,6 @@ public class SistemaBoleto {
 
     public void loadBoletos() throws Exception {
         boletos.clear();
-
         boletos.addAll(br.readLines());
     }
 
