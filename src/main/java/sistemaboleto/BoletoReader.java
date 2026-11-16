@@ -24,7 +24,6 @@ public class BoletoReader implements IBoletoFileStream {
 
         try {
             br.readLine();
-
             return this.readNextBoleto();
         } finally {
             this.closeStream();

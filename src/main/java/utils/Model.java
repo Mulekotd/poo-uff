@@ -1,5 +1,5 @@
 package utils;
 
-public interface Model {
+public interface Model { // Modelo Base
     public int getId();
 }
