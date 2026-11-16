@@ -98,6 +98,7 @@ public class Proxy {
             return new Response(request, Response.Result.FILE_NOT_FOUND, null, null, 0,
                     System.nanoTime() - start);
         }
+
         if (!holder.isReachable()) {
             return new Response(request, Response.Result.SERVER_UNAVAILABLE, holder.getIPv4(), null, 0,
                     System.nanoTime() - start);
